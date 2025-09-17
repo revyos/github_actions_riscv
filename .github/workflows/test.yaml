@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   run:
-    runs-on: self-hosted
+    runs-on: [ self-hosted, Linux, riscv64 ]
 
     steps:
     - name: Test actions/checkout
