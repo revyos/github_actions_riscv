@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: revyos/runner
-        ref: revyos/riscv64_runner_2.330.0
+        ref: revyos/riscv64_runner_2.331.0
         path: runner
 
     - name: Download .NET
