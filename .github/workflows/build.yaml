@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  dotnet_version: 8.0.416
+  dotnet_version: 8.0.419
+  dotnet_sdk_version: 8.0.25
 
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: revyos/runner
-        ref: revyos/riscv64_runner_2.331.0
+        ref: revyos/riscv64_runner_2.333.0
         path: runner
 
     - name: Download .NET
@@ -25,27 +26,27 @@ jobs:
         wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/dotnet-sdk-${dotnet_version}-linux-riscv64.tar.gz
         mkdir -p $GITHUB_WORKSPACE/packages
         cd $GITHUB_WORKSPACE/packages
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.AspNetCore.App.Runtime.linux-riscv64.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.AspNetCore.App.Runtime.linux-riscv64.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ItemTemplates.8.0.416.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ItemTemplates.8.0.416.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ProjectTemplates.8.0.8.0.416.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ProjectTemplates.8.0.8.0.416.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.Client.ItemTemplates.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.ItemTemplates.8.0.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.ProjectTemplates.8.0.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Host.linux-riscv64.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Host.linux-riscv64.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Runtime.linux-riscv64.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Runtime.linux-riscv64.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHost.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHost.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostPolicy.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostPolicy.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostResolver.8.0.22.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostResolver.8.0.22.symbols.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.ILAsm.8.0.22-ci.nupkg
-        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.ILDAsm.8.0.22-ci.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.AspNetCore.App.Runtime.linux-riscv64.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.AspNetCore.App.Runtime.linux-riscv64.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ItemTemplates.${dotnet_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ItemTemplates.${dotnet_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ProjectTemplates.8.0.${dotnet_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Common.ProjectTemplates.8.0.${dotnet_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.Client.ItemTemplates.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.ItemTemplates.8.0.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.DotNet.Web.ProjectTemplates.8.0.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Host.linux-riscv64.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Host.linux-riscv64.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Runtime.linux-riscv64.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/Microsoft.NETCore.App.Runtime.linux-riscv64.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHost.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHost.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostPolicy.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostPolicy.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostResolver.${dotnet_sdk_version}.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.DotNetHostResolver.${dotnet_sdk_version}.symbols.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.ILAsm.${dotnet_sdk_version}-ci.nupkg
+        wget https://github.com/revyos/dotnet_cross/releases/download/${dotnet_version}/runtime.linux-riscv64.Microsoft.NETCore.ILDAsm.${dotnet_sdk_version}-ci.nupkg
 
     - name: Prepare
       run: |
